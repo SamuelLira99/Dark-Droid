@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Scripts/Nave.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/enforcer.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -40.005, -78.586, -13.005, -102.586, 16.995, -101.586, 64.995, -41.586, 70.995, -9.586, 33.995, 96.414, -24.005, 104.414, -55.005, 70.414, -71.005, -46.586 )
+
+[node name="Nave" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="corpo" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="laserEsquerdo" type="Position2D" parent="."]
+
+transform/pos = Vector2( -65.4369, -60.4426 )
+
+[node name="laserCentral" type="Position2D" parent="."]
+
+transform/pos = Vector2( 0, -77.5492 )
+
+[node name="laserDireito" type="Position2D" parent="."]
+
+transform/pos = Vector2( 61.1719, -63.9128 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -40.005, -78.586, -13.005, -102.586, 16.995, -101.586, 64.995, -41.586, 70.995, -9.586, 33.995, 96.414, -24.005, 104.414, -55.005, 70.414, -71.005, -46.586 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+
